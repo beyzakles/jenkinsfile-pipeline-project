@@ -3,15 +3,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo 'HELLO V4'
-                sh 'echo Integrating Jenkins Pipeline with GitHub Webhook using Jenkinsfile'
+                echo 'Compiling the java source code'
+                sh 'javac Hello.java'
             }
         }
         stage('run') {
             steps {
-                echo 'HELLO V5'
-                sh 'python --version'
-                sh 'python pipeline.py'
+                echo 'Running the compiled java code.'
+                sh 'java Hello'
             }
         }
     }
